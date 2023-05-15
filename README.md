@@ -3,7 +3,7 @@
 Project 1: Alternative Fuel Stations (SQL and Tableau)
 I downloaded data from the U.S. Department of Energy and am analyzing it to understand how many alternative fuel stations of each type there are, and where in the country they are located.
 
-My first step was importing the data into MS SQL Server and using SQL for Data Cleaning (see Alt_Fuel_Stations_SQL_Data_Cleaning.sql)
+My first step was importing the data into MS SQL Server and using SQL for Data Cleaning (Alt_Fuel_Stations_SQL_Data_Cleaning.sql)
+I then did some exploratory data analysis (EDA) again using MS SQL Server (Alt_Fuel_Stations_SQL_EDA.ipynb)
 
-I am now using SQL for exploratory data analysis (EDA).
-Next I will visualize the data using Tableau.
+Next I will visualize the cleaned data using Tableau.
