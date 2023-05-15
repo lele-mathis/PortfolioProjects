@@ -4,6 +4,22 @@
 --Initial query to take a look at the data
 SELECT * FROM dbo.alt_fuel_stations
 
+--Checking for null values in State, ZIP, and Country fields since I am interested in the geographic distribution of fueling stations
+SELECT State, ZIP, Country from dbo.alt_fuel_stations
+    WHERE State is null or ZIP is null or Country is null
+
+--Looks there are no null country or zip code values, but there are null states. 
+--However, I can fill the missing state values in from the zip codes using a table imported from https://simplemaps.com/data/us-zips called dbo.uszips
+
+UPDATE dbo.alt_fuel_stations
+SET State = COALESCE(State, (SELECT state_name FROM dbo.uszips WHERE dbo.uszips.zip = dbo.alt_fuel_stations.ZIP))
+
+--Checking that it worked
+SELECT State, ZIP, Country from dbo.alt_fuel_stations
+    WHERE State is null or ZIP is null or Country is null
+
+--Looks like there is only one ZIP code where the corresponding state couldn't be found!
+
 --Since this data set has many extra columns not relevant to the analysis I want to do,
 --I am making a new table containing only the desired columns about station's type, location, and access
 SELECT ID, Fuel_type_code, Station_Name, City, State, ZIP, Country, Status_Code, Access_Code, Facility_Type 
