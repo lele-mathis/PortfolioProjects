@@ -8,4 +8,4 @@ My first step was importing the data into MS SQL Server and using SQL for Data C
 
 I then did some exploratory data analysis (EDA) again using MS SQL Server (Alt_Fuel_Stations_SQL_EDA.ipynb)
 
-Next I will visualize the cleaned data using Tableau.
+Next I am visualizing the cleaned data using Tableau and creating a dashboard.
